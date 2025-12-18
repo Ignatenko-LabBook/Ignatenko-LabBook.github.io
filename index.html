@@ -5,7 +5,6 @@
     <title>Ignatenko LabBook</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
@@ -52,25 +51,20 @@
             font-size: 16px;
             border-radius: 14px;
             cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .hero button:hover {
-            background: #a67cca;
         }
 
         /* ===== SECTIONS ===== */
-        .sections {
-            background: #faf7fc;
-            padding: 60px 30px 80px;
+        section {
+            padding: 60px 30px;
         }
 
-        .sections h2 {
+        h2 {
             text-align: center;
             font-size: 26px;
             margin-bottom: 40px;
         }
 
+        /* ===== ANALYSIS CARDS ===== */
         .cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -85,29 +79,61 @@
             padding: 30px 20px;
             text-align: center;
             box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-            transition: transform 0.2s, box-shadow 0.2s;
-            cursor: pointer;
         }
 
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 14px 28px rgba(0,0,0,0.10);
-        }
-
-        .card .icon {
+        .icon {
             font-size: 42px;
             margin-bottom: 14px;
         }
 
-        .card h3 {
-            font-size: 17px;
-            font-weight: 600;
+        /* ===== LECTURES ===== */
+        .lectures {
+            background: #faf7fc;
         }
 
-        /* ===== FOOTER (необязательно, но аккуратно) ===== */
+        .lecture-list {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            gap: 20px;
+        }
+
+        .lecture {
+            background: #fff;
+            padding: 22px 26px;
+            border-radius: 18px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+        }
+
+        .lecture h3 {
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+
+        .lecture p {
+            font-size: 14px;
+            color: #6a5a7b;
+        }
+
+        /* ===== ABOUT ===== */
+        .about {
+            background: #f3ecfa;
+        }
+
+        .about-box {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 26px;
+            box-shadow: 0 10px 26px rgba(0,0,0,0.08);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 24px;
             font-size: 14px;
             color: #8a7a99;
         }
@@ -116,71 +142,75 @@
 
 <body>
 
-    <!-- HERO -->
-    <section class="hero">
-        <img src="https://em-content.zobj.net/thumbs/120/apple/354/test-tube_1f9ea.png" alt="Lab">
-        <h1>Ignatenko LabBook</h1>
-        <p>Персональная шпаргалка врача КДЛ: анализы,<br>интерпретации, алгоритмы</p>
-        <button onclick="document.getElementById('sections').scrollIntoView({behavior:'smooth'})">
-            Перейти к разделам анализов
-        </button>
-    </section>
+<!-- HERO -->
+<div class="hero">
+    <img src="https://em-content.zobj.net/thumbs/120/apple/354/test-tube_1f9ea.png">
+    <h1>Ignatenko LabBook</h1>
+    <p>Персональная шпаргалка врача КДЛ: анализы,<br>интерпретации, алгоритмы</p>
+    <button onclick="document.getElementById('analysis').scrollIntoView({behavior:'smooth'})">
+        Перейти к разделам анализов
+    </button>
+</div>
 
-    <!-- SECTIONS -->
-    <section class="sections" id="sections">
-        <h2>Разделы анализов</h2>
+<!-- ANALYSIS -->
+<section id="analysis">
+    <h2>Разделы анализов</h2>
+    <div class="cards">
+        <div class="card"><div class="icon">🩸</div>Гематология</div>
+        <div class="card"><div class="icon">🧪</div>Общеклинические</div>
+        <div class="card"><div class="icon">⚗️</div>Биохимия</div>
+        <div class="card"><div class="icon">🧬</div>Гемостаз</div>
+        <div class="card"><div class="icon">🦠</div>Микробиология</div>
+        <div class="card"><div class="icon">🛡️</div>Иммунология</div>
+        <div class="card"><div class="icon">🧫</div>Инфекции</div>
+        <div class="card"><div class="icon">🧠</div>Гормоны</div>
+        <div class="card"><div class="icon">🎗️</div>Онкомаркеры</div>
+    </div>
+</section>
 
-        <div class="cards">
-            <div class="card">
-                <div class="icon">🩸</div>
-                <h3>Гематология</h3>
-            </div>
+<!-- LECTURES -->
+<section class="lectures">
+    <h2>Последние лекции</h2>
 
-            <div class="card">
-                <div class="icon">🧪</div>
-                <h3>Общеклинические</h3>
-            </div>
-
-            <div class="card">
-                <div class="icon">⚗️</div>
-                <h3>Биохимия</h3>
-            </div>
-
-            <div class="card">
-                <div class="icon">🧬</div>
-                <h3>Гемостаз</h3>
-            </div>
-
-            <div class="card">
-                <div class="icon">🦠</div>
-                <h3>Микробиология</h3>
-            </div>
-
-            <div class="card">
-                <div class="icon">🛡️</div>
-                <h3>Иммунология</h3>
-            </div>
-
-            <div class="card">
-                <div class="icon">🧫</div>
-                <h3>Инфекции</h3>
-            </div>
-
-            <div class="card">
-                <div class="icon">🧠</div>
-                <h3>Гормоны</h3>
-            </div>
-
-            <div class="card">
-                <div class="icon">🎗️</div>
-                <h3>Онкомаркеры</h3>
-            </div>
+    <div class="lecture-list">
+        <div class="lecture">
+            <h3>Интерпретация АЧТВ и МНО</h3>
+            <p>Гемостазиограмма при варфарине и ДОАК</p>
         </div>
-    </section>
 
-    <footer>
-        © Ignatenko LabBook
-    </footer>
+        <div class="lecture">
+            <h3>Ферритин: норма или воспаление?</h3>
+            <p>Как отличить дефицит железа от АХЗ</p>
+        </div>
+
+        <div class="lecture">
+            <h3>ТТГ, Т4, Т3: клинические ловушки</h3>
+            <p>Алгоритм интерпретации гормонов ЩЖ</p>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+    <h2>О проекте</h2>
+    <div class="about-box">
+        <p>
+            <b>Ignatenko LabBook</b> — это персональная база знаний врача клинико-диагностической лаборатории.
+        </p>
+        <p>
+            Проект создан для систематизации анализов, референсных значений,
+            клинических алгоритмов и интерпретаций без «воды».
+        </p>
+        <p>
+            Все материалы ориентированы на практику: что сдавать, как читать результат
+            и какие действия рекомендовать клиницисту.
+        </p>
+    </div>
+</section>
+
+<footer>
+    © Ignatenko LabBook
+</footer>
 
 </body>
 </html>
