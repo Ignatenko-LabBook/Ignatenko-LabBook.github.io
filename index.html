@@ -92,289 +92,48 @@
       width: 70px;
       height: 70px;
     }
-  
-.lectures {
-  padding: 60px 20px;
-  background: #ffffff;
-  text-align: center;
-}
-.lectures h2 {
-  color: #5e3a7d;
-  margin-bottom: 30px;
-}
-.lecture-grid {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 24px;
-}
-.lecture-card {
-  background: #f6f0fa;
-  padding: 26px 22px;
-  border-radius: 24px;
-  width: 300px;
-  text-align: left;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
-  text-decoration: none;
-  color: #333;
-  transition: 0.25s;
-}
-.lecture-card:hover {
-  transform: translateY(-4px);
-}
-.about {
-  padding: 60px 20px;
-  background: #faf7fc;
-  text-align: center;
-  max-width: 850px;
-  margin: 0 auto;
-}
-.about h2 {
-  color: #5e3a7d;
-  margin-bottom: 20px;
-}
-.about p {
-  font-size: 20px;
-  line-height: 1.5;
-  color: #6b547a;
-}
-</style>
+  </style>
 </head>
+
 <body>
 
 <div class="wave top"></div>
 <div class="wave bottom"></div>
 
-<!-- ---- HERO ---- -->
-<section id="hero" style="padding:140px 20px; text-align:center; background:#f6f0fa; position:relative; overflow:hidden;">
-  <div style="position:relative; z-index:2; display:flex; justify-content:center;">
-    <img src="cat-logo-new.png" class="cat-wiggle" style="width:220px; height:auto;">
-  </div>
+<!-- HERO -->
+<section style="padding:140px 20px; text-align:center; background:#f6f0fa;">
+  <img src="cat-logo-new.png" class="cat-wiggle" style="width:220px;">
   <h1 style="font-size:64px; margin:30px 0 15px; color:#4c2f66;">Ignatenko LabBook</h1>
-  <p style="font-size:26px; color:#6b547a; max-width:750px; margin:0 auto 50px; line-height:1.45;">
+  <p style="font-size:26px; color:#6b547a; max-width:750px; margin:0 auto 50px;">
     Персональная шпаргалка врача КДЛ: анализы, интерпретации, алгоритмы
   </p>
-  <a href="#sections" style="background:#b28cd6; color:white; padding:22px 48px; border-radius:14px; font-size:22px; text-decoration:none; box-shadow:0 8px 18px rgba(178,140,214,0.4); display:inline-block;">
+  <a href="#sections"
+     style="background:#b28cd6;color:white;padding:22px 48px;border-radius:14px;
+            font-size:22px;text-decoration:none;">
     Перейти к разделам анализов
   </a>
 </section>
 
-<!-- ---- FEATURES ---- -->
-<section id="features" style="padding:60px 20px; background:white;">
-  <h2 style="text-align:center; color:#5e3a7d;">Что вы найдёте на сайте</h2>
-  <div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin-top:30px;">
-
-    <div class="test-card">
-      <div style="font-size:40px;">📘</div>
-      <h3>Справочник анализов</h3>
-      <p>Методы, референсы, интерпретация ↑↓, патологии</p>
-    </div>
-
-    <div class="test-card">
-      <div style="font-size:40px;">🧪</div>
-      <h3>Лекции и шпаргалки</h3>
-      <p>Глубокие разборы по направлениям</p>
-    </div>
-
-    <div class="test-card">
-      <div style="font-size:40px;">📄</div>
-      <h3>PDF-гайды</h3>
-      <p>Красивые материалы, готовые к скачиванию</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- ---- SECTIONS ---- -->
-<section id="sections" style="padding:60px 20px; background:#faf7fc;">
+<!-- РАЗДЕЛЫ -->
+<section id="sections" style="padding:80px 20px; background:#faf7fc;">
   <h2 style="text-align:center; color:#5e3a7d;">Разделы анализов</h2>
 
   <div class="sections-grid">
 
-    <!-- Гематология -->
-    <a class="section-card" href="#hematology">
-      <div class="icon-wrapper">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#5e3a7d" stroke-width="1.4">
-          <ellipse cx="12" cy="12" rx="8" ry="5" />
-          <ellipse cx="12" cy="12" rx="4" ry="2.5" />
-        </svg>
-      </div>
-      Гематология
-    </a>
+    <a class="section-card" href="hematology.html">Гематология</a>
+    <a class="section-card" href="general.html">Общеклинические</a>
+    <a class="section-card" href="biochemistry.html">Биохимия</a>
+    <a class="section-card" href="hemostasis.html">Гемостаз</a>
+    <a class="section-card" href="microbiology.html">Микробиология</a>
+    <a class="section-card" href="immunology.html">Иммунология</a>
+    <a class="section-card" href="infections.html">Инфекции</a>
 
-    <!-- Общеклинические -->
-    <a class="section-card" href="#general">
-      <div class="icon-wrapper">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#5e3a7d" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 4h16v16H4z" />
-          <path d="M4 10h16" />
-        </svg>
-      </div>
-      Общеклинические исследования
-    </a>
+    <!-- ВАЖНО -->
+    <a class="section-card" href="hormones.html">Гормоны</a>
 
-    <!-- Биохимия -->
-    <a class="section-card" href="#biochemistry">
-      <div class="icon-wrapper">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#5e3a7d" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M10 2v6L5 20a7 7 0 0 0 14 0l-5-12V2" />
-          <line x1="10" y1="8" x2="14" y2="8" />
-        </svg>
-      </div>
-      Биохимия
-    </a>
-
-    <!-- Гемостаз -->
-    <a class="section-card" href="#hemostasis">
-      <div class="icon-wrapper">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#5e3a7d" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2c3 4 5 7 5 10a5 5 0 0 1-10 0c0-3 2-6 5-10z" />
-          <path d="M8 15h8" />
-        </svg>
-      </div>
-      Гемостаз
-    </a>
-
-    <!-- Микробиология -->
-    <a class="section-card" href="#microbiology">
-      <div class="icon-wrapper">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#5e3a7d" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="5" />
-          <line x1="21" y1="21" x2="16.65" y2="16.65" />
-        </svg>
-      </div>
-      Микробиология
-    </a>
-
-    <!-- Иммунология -->
-    <a class="section-card" href="#immunology">
-      <div class="icon-wrapper">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#5e3a7d" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M6 4l6 6 6-6" />
-          <path d="M12 10v10" />
-        </svg>
-      </div>
-      Иммунология
-    </a>
-
-    <!-- Инфекции -->
-    <a class="section-card" href="#infections">
-      <div class="icon-wrapper">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#5e3a7d" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="4" />
-          <line x1="12" y1="2" x2="12" y2="6" />
-          <line x1="12" y1="18" x2="12" y2="22" />
-          <line x1="2" y1="12" x2="6" y2="12" />
-          <line x1="18" y1="12" x2="22" y2="12" />
-        </svg>
-      </div>
-      Инфекции
-    </a>
-
-    <!-- Гормоны -->
-    <a class="section-card" href="#hormones">
-      <div class="icon-wrapper">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#5e3a7d" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2c4 5 7 9 7 12a7 7 0 0 1-14 0c0-3 3-7 7-12z" />
-        </svg>
-      </div>
-      Гормоны
-    </a>
-
-    <!-- Онкомаркеры -->
-    <a class="section-card" href="#oncology">
-      <div class="icon-wrapper">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#5e3a7d" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 18c3-6 6-6 9 0s6 6 9 0" />
-        </svg>
-      </div>
-      Онкомаркеры
-    </a>
+    <a class="section-card" href="oncology.html">Онкомаркеры</a>
 
   </div>
-</section>
-
-<!-- ===== ШАБЛОН СТРАНИЦЫ РАЗДЕЛА: ГОРМОНЫ ===== -->
-<section id="hormones" style="padding:80px 20px; background:#ffffff;">
-  <div style="max-width:1100px; margin:0 auto;">
-
-    <h2 style="color:#5e3a7d; font-size:42px; margin-bottom:20px;">Гормоны</h2>
-    <p style="font-size:20px; color:#6b547a; max-width:800px; line-height:1.5;">
-      Раздел посвящён гормональным исследованиям: принципам методов, клинической интерпретации,
-      алгоритмам КДЛ и типичным диагностическим ловушкам.
-    </p>
-
-    <!-- Подразделы -->
-    <div class="sections-grid" style="margin-top:50px;">
-
-      <a class="section-card" href="#">
-        <strong>Щитовидная железа</strong>
-        <span style="font-weight:400; font-size:16px; color:#6b547a;">ТТГ, Т4, Т3, АТ</span>
-      </a>
-
-      <a class="section-card" href="#">
-        <strong>Надпочечники</strong>
-        <span style="font-weight:400; font-size:16px; color:#6b547a;">Кортизол, АКТГ</span>
-      </a>
-
-      <a class="section-card" href="#">
-        <strong>Половые гормоны</strong>
-        <span style="font-weight:400; font-size:16px; color:#6b547a;">ФСГ, ЛГ, эстрадиол</span>
-      </a>
-
-      <a class="section-card" href="#">
-        <strong>Гипофиз</strong>
-        <span style="font-weight:400; font-size:16px; color:#6b547a;">Пролактин, СТГ</span>
-      </a>
-
-      <a class="section-card" href="#">
-        <strong>Поджелудочная железа</strong>
-        <span style="font-weight:400; font-size:16px; color:#6b547a;">Инсулин, С-пептид</span>
-      </a>
-
-    </div>
-
-    <!-- Типовой шаблон анализа -->
-    <div style="margin-top:80px;">
-      <h3 style="color:#5e3a7d; font-size:32px;">Шаблон страницы анализа</h3>
-
-      <div class="test-card" style="margin-top:30px; max-width:800px;">
-        <h4>ТТГ (тиреотропный гормон)</h4>
-        <p><strong>Материал:</strong> сыворотка</p>
-        <p><strong>Метод:</strong> ИФА / хемилюминесценция</p>
-        <p><strong>Референсы:</strong> 0.4–4.0 мМЕ/л</p>
-        <p><strong>Повышение:</strong> первичный гипотиреоз</p>
-        <p><strong>Снижение:</strong> тиреотоксикоз</p>
-        <p><strong>Комментарии КДЛ:</strong> учитывать беременность, приём левотироксина</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- Последние лекции -->
-<section class="lectures">
-  <h2>Последние лекции</h2>
-  <div class="lecture-grid">
-    <a class="lecture-card" href="materials/hypothyroidism-algorithm.html">
-      <h3>Гипотиреоз: алгоритм КДЛ</h3>
-      <p>Краткий обзор алгоритма диагностики</p>
-    </a>
-    <a class="lecture-card" href="materials/ferritin-interpretation.html">
-      <h3>Интерпретация ферритина</h3>
-      <p>Практическая шпаргалка</p>
-    </a>
-  </div>
-</section>
-
-<!-- О проекте -->
-<section class="about">
-  <h2>О проекте</h2>
-  <p>
-    Ignatenko LabBook — это личная профессиональная база знаний врача КДЛ,
-    где собраны анализы, интерпретации, алгоритмы диагностики и обучающие материалы.
-  </p>
 </section>
 
 </body>
