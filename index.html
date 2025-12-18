@@ -2,236 +2,217 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Ignatenko LabBook</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ignatenko LabBook — Врач КДЛ</title>
 
   <style>
-    :root {
-      --lavender-bg: #f6f0fa;
-      --card-bg: #ffffff;
-      --accent: #9b7fcf;
-      --text-main: #2b2b2b;
-      --text-muted: #6f6f6f;
-      --shadow: 0 10px 28px rgba(120, 90, 160, 0.14);
-      --radius: 18px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: linear-gradient(180deg, #f4eef9 0%, #faf7fd 100%);
-      color: var(--text-main);
+      font-family: "Inter", Arial, sans-serif;
+      background: #f8f6fc;
+      overflow-x: hidden;
+      color: #333;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    /* Волны */
+    .wave {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 180px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      opacity: 0.55;
+      z-index: -1;
+    }
+    .wave.top {
+      top: 0;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="320"><path fill="%23cfc4ff" d="M0,160L48,165C96,171,192,181,288,192C384,203,480,213,576,224C672,235,768,245,864,219C960,192,1056,128,1152,112C1248,96,1344,128,1392,144L1440,160V0H0Z"/></svg>');
+    }
+    .wave.bottom {
+      bottom: 0;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="320"><path fill="%23e5ddff" d="M0,224L60,235C120,245,240,267,360,261C480,256,600,224,720,203C840,181,960,171,1080,187C1200,203,1320,245,1380,267L1440,288V0H0Z"/></svg>');
     }
 
-    header {
+    /* Котик */
+    .cat-wiggle {
+      animation: wiggle 2.2s ease-in-out infinite;
+      transform-origin: 60% 20%;
+    }
+    @keyframes wiggle {
+      0% { transform: rotate(0deg); }
+      35% { transform: rotate(3deg); }
+      70% { transform: rotate(-3deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    /* HERO */
+    #hero {
+      padding: 140px 20px;
       text-align: center;
-      padding: 64px 20px 48px;
+      background: #f6f0fa;
+      position: relative;
+    }
+    #hero h1 {
+      font-size: 64px;
+      margin: 30px 0 15px;
+      color: #4c2f66;
+    }
+    #hero p {
+      font-size: 26px;
+      color: #6b547a;
+      max-width: 760px;
+      margin: 0 auto 50px;
+      line-height: 1.45;
+    }
+    #hero a {
+      background: #b28cd6;
+      color: #fff;
+      padding: 22px 48px;
+      border-radius: 14px;
+      font-size: 22px;
+      text-decoration: none;
+      box-shadow: 0 8px 18px rgba(178,140,214,0.4);
     }
 
-    .cat {
-      width: 120px;
-      margin-bottom: 16px;
-      animation: float 3.5s ease-in-out infinite;
+    /* Карточки */
+    .test-card {
+      width: 280px;
+      background: #f6f0fa;
+      padding: 26px 22px;
+      border-radius: 26px;
+      text-align: center;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
     }
 
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-      100% { transform: translateY(0); }
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 34px;
-      font-weight: 600;
-    }
-
-    .subtitle {
-      margin-top: 8px;
-      color: var(--text-muted);
-      font-size: 15px;
-    }
-
+    /* Секции */
     section {
+      padding: 60px 20px;
+    }
+    h2 {
+      text-align: center;
+      color: #5e3a7d;
+      margin-bottom: 40px;
+    }
+
+    /* Разделы анализов */
+    .sections-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 32px;
       max-width: 1100px;
       margin: 0 auto;
-      padding: 56px 20px;
+      justify-items: center;
     }
 
-    .section-title {
-      font-size: 22px;
-      margin-bottom: 28px;
+    .section-card {
+      background: #fff;
+      padding: 30px 20px;
+      border-radius: 28px;
       text-align: center;
-    }
-
-    /* ====== Разделы анализов ====== */
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 22px;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      height: 110px;
-
+      text-decoration: none;
+      color: #333;
+      font-size: 20px;
+      font-weight: 600;
+      min-height: 230px;
+      width: 100%;
+      max-width: 280px;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
-      text-align: center;
-
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 14px 36px rgba(120, 90, 160, 0.2);
-    }
-
-    .card-title {
-      font-size: 16px;
-      font-weight: 500;
-    }
-
-    /* ====== Последние лекции ====== */
-
-    .lectures {
-      display: grid;
       gap: 16px;
-      max-width: 860px;
-      margin: 0 auto;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+      transition: 0.25s;
+    }
+    .section-card:hover {
+      transform: translateY(-5px);
     }
 
-    .lecture {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      padding: 18px 22px;
-      box-shadow: var(--shadow);
+    .section-card svg {
+      width: 70px;
+      height: 70px;
+      stroke: #5e3a7d;
+    }
 
+    /* Лекции */
+    .lecture-grid {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: nowrap;
+    }
+    .lecture-card {
+      background: #f6f0fa;
+      padding: 26px 24px;
+      border-radius: 24px;
+      width: 320px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+      text-decoration: none;
+      color: #333;
+      transition: 0.25s;
+    }
+    .lecture-card:hover {
+      transform: translateY(-4px);
     }
 
-    .lecture-title {
-      font-weight: 500;
-    }
-
-    .lecture-desc {
-      font-size: 14px;
-      color: var(--text-muted);
-      white-space: nowrap;
-    }
-
-    /* ====== О проекте ====== */
-
+    /* О проекте */
     .about {
-      max-width: 760px;
+      max-width: 900px;
       margin: 0 auto;
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      padding: 28px 32px;
-      box-shadow: var(--shadow);
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    footer {
       text-align: center;
-      padding: 36px 20px 24px;
-      font-size: 13px;
-      color: var(--text-muted);
     }
-
-    @media (max-width: 600px) {
-      .lecture {
-        align-items: flex-start;
-      }
-
-      .lecture-desc {
-        white-space: normal;
-      }
+    .about p {
+      font-size: 20px;
+      line-height: 1.5;
+      color: #6b547a;
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <img src="cat.png" alt="Lab cat" class="cat">
-    <h1>Ignatenko LabBook</h1>
-    <div class="subtitle">
-      Профессиональная база знаний врача КДЛ
-    </div>
-  </header>
+<div class="wave top"></div>
+<div class="wave bottom"></div>
 
-  <!-- Разделы анализов -->
-  <section>
-    <div class="section-title">Разделы анализов</div>
-    <div class="cards">
-      <a class="card" href="#"><div class="card-title">Гематология</div></a>
-      <a class="card" href="#"><div class="card-title">Общеклинические исследования</div></a>
-      <a class="card" href="#"><div class="card-title">Биохимия</div></a>
-      <a class="card" href="#"><div class="card-title">Гемостаз</div></a>
-      <a class="card" href="#"><div class="card-title">Микробиология</div></a>
-      <a class="card" href="#"><div class="card-title">Иммунология</div></a>
-      <a class="card" href="hormones.html"><div class="card-title">Гормоны</div></a>
-      <a class="card" href="#"><div class="card-title">Инфекции</div></a>
-      <a class="card" href="#"><div class="card-title">Онкомаркеры</div></a>
-    </div>
-  </section>
+<section id="hero">
+  <img src="cat-logo-new.png" class="cat-wiggle" style="width:220px;">
+  <h1>Ignatenko LabBook</h1>
+  <p>Персональная шпаргалка врача КДЛ: анализы, интерпретации, алгоритмы</p>
+  <a href="#sections">Перейти к разделам анализов</a>
+</section>
 
-  <!-- Последние лекции -->
-  <section>
-    <div class="section-title">Последние лекции</div>
-    <div class="lectures">
-      <div class="lecture">
-        <div class="lecture-title">Гипотиреоз: алгоритм КДЛ</div>
-        <div class="lecture-desc">Краткий обзор алгоритма диагностики</div>
-      </div>
+<section>
+  <h2>Разделы анализов</h2>
+  <div class="sections-grid" id="sections">
 
-      <div class="lecture">
-        <div class="lecture-title">Интерпретация ферритина</div>
-        <div class="lecture-desc">Практическая шпаргалка</div>
-      </div>
+    <a class="section-card" href="#"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="8" ry="5"/><ellipse cx="12" cy="12" rx="4" ry="2.5"/></svg>Гематология</a>
+    <a class="section-card" href="#"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 10h16"/></svg>Общеклинические</a>
+    <a class="section-card" href="#"><svg viewBox="0 0 24 24"><path d="M10 2v6L5 20a7 7 0 0 0 14 0l-5-12"/></svg>Биохимия</a>
+    <a class="section-card" href="#"><svg viewBox="0 0 24 24"><path d="M12 2c3 4 5 7 5 10a5 5 0 0 1-10 0z"/></svg>Гемостаз</a>
+    <a class="section-card" href="#"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="5"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg>Микробиология</a>
+    <a class="section-card" href="#"><svg viewBox="0 0 24 24"><path d="M6 4l6 6 6-6"/><path d="M12 10v10"/></svg>Иммунология</a>
+    <a class="section-card" href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="6"/></svg>Инфекции</a>
+    <a class="section-card" href="#"><svg viewBox="0 0 24 24"><path d="M12 2c4 5 7 9 7 12a7 7 0 0 1-14 0z"/></svg>Гормоны</a>
+    <a class="section-card" href="#"><svg viewBox="0 0 24 24"><path d="M3 18c3-6 6-6 9 0s6 6 9 0"/></svg>Онкомаркеры</a>
 
-      <div class="lecture">
-        <div class="lecture-title">АЧТВ и МНО при терапии</div>
-        <div class="lecture-desc">Частые ошибки и ловушки</div>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <!-- О проекте -->
-  <section>
-    <div class="section-title">О проекте</div>
-    <div class="about">
-      Ignatenko LabBook — это личная профессиональная база знаний врача
-      клинико-диагностической лаборатории.  
-      Проект создан для систематизации анализов, интерпретаций,
-      референсных значений и клинических алгоритмов.  
-      Все материалы ориентированы на практику: что сдавать,
-      как читать результат и какие выводы делать.
-    </div>
-  </section>
+<section>
+  <h2>Последние лекции</h2>
+  <div class="lecture-grid">
+    <a class="lecture-card" href="#"><h3>Гипотиреоз: алгоритм КДЛ</h3><p>Краткий обзор диагностики</p></a>
+    <a class="lecture-card" href="#"><h3>Интерпретация ферритина</h3><p>Практическая шпаргалка</p></a>
+  </div>
+</section>
 
-  <footer>
-    © Ignatenko LabBook
-  </footer>
+<section class="about">
+  <h2>О проекте</h2>
+  <p>
+    Ignatenko LabBook — личная профессиональная база знаний врача КДЛ:
+    анализы, интерпретации, алгоритмы диагностики и обучающие материалы.
+  </p>
+</section>
 
 </body>
 </html>
