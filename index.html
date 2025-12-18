@@ -3,137 +3,213 @@
 <head>
   <meta charset="UTF-8" />
   <title>Ignatenko LabBook</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
+    :root {
+      --lavender-bg: #f6f0fa;
+      --card-bg: #ffffff;
+      --accent: #9b7fcf;
+      --text-main: #2b2b2b;
+      --text-muted: #6f6f6f;
+      --shadow: 0 10px 28px rgba(120, 90, 160, 0.14);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #fafafa;
-      color: #222;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(180deg, #f4eef9 0%, #faf7fd 100%);
+      color: var(--text-main);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
     header {
-      padding: 40px 20px 20px;
+      text-align: center;
+      padding: 64px 20px 48px;
+    }
+
+    .cat {
+      width: 120px;
+      margin-bottom: 16px;
+      animation: float 3.5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0); }
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 34px;
+      font-weight: 600;
+    }
+
+    .subtitle {
+      margin-top: 8px;
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 56px 20px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      margin-bottom: 28px;
       text-align: center;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 28px;
-    }
+    /* ====== Разделы анализов ====== */
 
-    header p {
-      margin-top: 10px;
-      color: #555;
-    }
-
-    .sections {
+    .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      padding: 30px 20px;
-      max-width: 1100px;
-      margin: auto;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
     }
 
     .card {
-      background: white;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      text-decoration: none;
-      color: inherit;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+      box-shadow: 0 14px 36px rgba(120, 90, 160, 0.2);
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    /* ====== Последние лекции ====== */
+
+    .lectures {
+      display: grid;
+      gap: 18px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .lecture {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .lecture-title {
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .lecture-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* ====== О проекте ====== */
+
+    .about {
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      box-shadow: var(--shadow);
+      font-size: 15px;
+      line-height: 1.6;
     }
 
     footer {
-      background: #fff;
-      margin-top: 60px;
-      padding: 40px 20px;
-      border-top: 1px solid #eee;
-    }
-
-    footer h3 {
-      margin-top: 0;
-    }
-
-    .footer-grid {
-      max-width: 1100px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-    }
-
-    .cat {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 120px;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0); }
-    }
-
-    @media (max-width: 700px) {
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
+      text-align: center;
+      padding: 36px 20px 24px;
+      font-size: 13px;
+      color: var(--text-muted);
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Ignatenko LabBook</h1>
-  <p>Профессиональная база знаний врача КДЛ</p>
-</header>
-
-<section class="sections">
-  <a class="card" href="#">Гематология</a>
-  <a class="card" href="#">Общеклинические исследования</a>
-  <a class="card" href="#">Биохимия</a>
-  <a class="card" href="#">Гемостаз</a>
-  <a class="card" href="#">Микробиология</a>
-  <a class="card" href="#">Иммунология</a>
-  <a class="card" href="#">Инфекции</a>
-  <a class="card" href="hormones.html">Гормоны</a>
-  <a class="card" href="#">Онкомаркеры</a>
-</section>
-
-<footer>
-  <div class="footer-grid">
-    <div>
-      <h3>Последние лекции</h3>
-      <p><strong>Гипотиреоз: алгоритм КДЛ</strong><br>
-      Краткий обзор алгоритма диагностики</p>
-
-      <p><strong>Интерпретация ферритина</strong><br>
-      Практическая шпаргалка</p>
+  <header>
+    <img src="cat.png" alt="Lab cat" class="cat">
+    <h1>Ignatenko LabBook</h1>
+    <div class="subtitle">
+      Профессиональная база знаний врача КДЛ
     </div>
+  </header>
 
-    <div>
-      <h3>О проекте</h3>
-      <p>
-        Ignatenko LabBook — это личная профессиональная база знаний врача КДЛ,
-        где собраны анализы, интерпретации, алгоритмы диагностики и обучающие материалы.
-      </p>
+  <!-- Разделы анализов -->
+  <section>
+    <div class="section-title">Разделы анализов</div>
+    <div class="cards">
+      <a class="card" href="#"><div class="card-title">Гематология</div></a>
+      <a class="card" href="#"><div class="card-title">Общеклинические исследования</div></a>
+      <a class="card" href="#"><div class="card-title">Биохимия</div></a>
+      <a class="card" href="#"><div class="card-title">Гемостаз</div></a>
+      <a class="card" href="#"><div class="card-title">Микробиология</div></a>
+      <a class="card" href="#"><div class="card-title">Иммунология</div></a>
+      <a class="card" href="hormones.html"><div class="card-title">Гормоны</div></a>
+      <a class="card" href="#"><div class="card-title">Инфекции</div></a>
+      <a class="card" href="#"><div class="card-title">Онкомаркеры</div></a>
     </div>
-  </div>
-</footer>
+  </section>
 
-<img src="cat.png" alt="котик" class="cat">
+  <!-- Последние лекции -->
+  <section>
+    <div class="section-title">Последние лекции</div>
+    <div class="lectures">
+      <div class="lecture">
+        <div class="lecture-title">Гипотиреоз: алгоритм КДЛ</div>
+        <div class="lecture-desc">Краткий обзор алгоритма диагностики</div>
+      </div>
+
+      <div class="lecture">
+        <div class="lecture-title">Интерпретация ферритина</div>
+        <div class="lecture-desc">Практическая шпаргалка</div>
+      </div>
+
+      <div class="lecture">
+        <div class="lecture-title">АЧТВ и МНО при терапии</div>
+        <div class="lecture-desc">Частые ошибки и ловушки</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- О проекте -->
+  <section>
+    <div class="section-title">О проекте</div>
+    <div class="about">
+      Ignatenko LabBook — это личная профессиональная база знаний врача
+      клинико-диагностической лаборатории.  
+      Проект создан для систематизации анализов, интерпретаций,
+      референсных значений и клинических алгоритмов.  
+      Все материалы ориентированы на практику: что сдавать,
+      как читать результат и какие выводы делать.
+    </div>
+  </section>
+
+  <footer>
+    © Ignatenko LabBook
+  </footer>
 
 </body>
 </html>
