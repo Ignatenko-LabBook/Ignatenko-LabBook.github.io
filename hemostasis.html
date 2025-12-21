@@ -1,3 +1,198 @@
-<section id="hemostasis">
-  ...
-</section>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Гемостаз — Ignatenko LabBook</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Inter", Arial, sans-serif;
+      background: #f8f6fc;
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ---- Волны ---- */
+    .wave {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 180px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      opacity: 0.55;
+      z-index: -1;
+    }
+
+    .wave.top {
+      top: 0;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="320"><path fill="%23cfc4ff" d="M0,160L48,165.3C96,171,192,181,288,192C384,203,480,213,576,224C672,235,768,245,864,218.7C960,192,1056,128,1152,112C1248,96,1344,128,1392,144L1440,160V0H0Z"/></svg>');
+    }
+
+    /* ---- Карточки ---- */
+    .card {
+      background: #f6f0fa;
+      padding: 24px;
+      border-radius: 24px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+      margin-bottom: 24px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #4c2f66;
+    }
+
+    /* ---- Контейнер ---- */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 140px 20px 80px;
+    }
+
+    /* ---- Сетка тестов ---- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin: 40px 0;
+    }
+
+    .test-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    .test-card strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 6px;
+      color: #4c2f66;
+    }
+
+    /* ---- Кнопка назад ---- */
+    .back {
+      display: inline-block;
+      margin-bottom: 40px;
+      font-size: 14px;
+      color: #6b547a;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="wave top"></div>
+
+<div class="container">
+
+  <a href="index.html" class="back">← Назад к разделам</a>
+
+  <h1 style="color:#4c2f66;">Гемостаз</h1>
+  <p>
+    Лабораторная оценка системы свертывания крови: скрининг, контроль терапии,
+    дифференциальная диагностика.
+  </p>
+
+  <!-- Карточки тестов -->
+  <div class="grid">
+    <div class="test-card">
+      <strong>АЧТВ</strong>
+      <span>Внутренний путь свертывания</span>
+    </div>
+    <div class="test-card">
+      <strong>ПТИ / PT %</strong>
+      <span>Внешний путь свертывания</span>
+    </div>
+    <div class="test-card">
+      <strong>МНО (INR)</strong>
+      <span>Контроль терапии варфарином</span>
+    </div>
+    <div class="test-card">
+      <strong>Фибриноген</strong>
+      <span>Конечный этап коагуляции</span>
+    </div>
+  </div>
+
+  <!-- АЧТВ -->
+  <div class="card">
+    <h3>АЧТВ</h3>
+    <p><strong>Принцип метода:</strong> оценка внутреннего и общего пути свертывания (XII, XI, IX, VIII, X, V, II, I).</p>
+    <p><strong>Референс:</strong> 24–35 секунд (зависит от реагента).</p>
+
+    <h4>Изолированное удлинение АЧТВ — алгоритм</h4>
+    <ol>
+      <li>Проверить преаналитику (цитрат, гемолиз, сгусток).</li>
+      <li>Исключить гепарин (анамнез, анти-Xa).</li>
+      <li>Смесь 1:1 с нормальной плазмой:
+        <ul>
+          <li>Коррекция → дефицит факторов (VIII, IX, XI, XII).</li>
+          <li>Нет коррекции → ингибитор.</li>
+        </ul>
+      </li>
+      <li>При подозрении — тесты на волчаночный антикоагулянт.</li>
+    </ol>
+  </div>
+
+  <!-- ПТИ / PT -->
+  <div class="card">
+    <h3>ПТИ / PT %</h3>
+    <p><strong>Принцип:</strong> оценка внешнего пути свертывания (VII, X, V, II, I).</p>
+    <p><strong>Референс:</strong> 70–120 %.</p>
+
+    <h4>Печень vs варфарин</h4>
+    <ul>
+      <li><strong>Поражение печени:</strong> ↓ПТИ, ↓фибриноген, ↑АЧТВ.</li>
+      <li><strong>Варфарин:</strong> ↓ПТИ, ↑МНО, АЧТВ чаще в норме.</li>
+    </ul>
+  </div>
+
+  <!-- МНО -->
+  <div class="card">
+    <h3>МНО (INR)</h3>
+    <p><strong>Принцип:</strong> стандартизированная форма PT для мониторинга терапии антагонистами витамина K.</p>
+
+    <h4>Терапевтические диапазоны</h4>
+    <ul>
+      <li>Большинство показаний: <strong>2.0–3.0</strong></li>
+      <li>Механические клапаны: <strong>2.5–3.5</strong></li>
+    </ul>
+
+    <h4>Ошибки и ловушки</h4>
+    <ul>
+      <li>Нарушение соотношения кровь / цитрат.</li>
+      <li>Высокий гематокрит.</li>
+      <li>Различия ISI тромбопластинов.</li>
+    </ul>
+  </div>
+
+  <!-- Алгоритмы -->
+  <div class="card">
+    <h3>Клинические алгоритмы</h3>
+    <ul>
+      <li><strong>↑АЧТВ + нормальный PT</strong> → внутренний путь.</li>
+      <li><strong>↑PT / МНО + нормальный АЧТВ</strong> → внешний путь / варфарин.</li>
+      <li><strong>↑АЧТВ + ↑PT</strong> → печень, ДВС, дефицит витамина K.</li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
