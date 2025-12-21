@@ -33,16 +33,22 @@
       background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="320"><path fill="%23e5ddff" d="M0,224L60,234.7C120,245,240,267,360,261.3C480,256,600,224,720,202.7C840,181,960,171,1080,186.7C1200,203,1320,245,1380,266.7L1440,288V0H0Z"/></svg>');
     }
 
-    /* КОТИК */
+    /* ---- Котик ---- */
     .cat {
-      width: 120px;
-      margin: 30px auto 0;
-      animation: float 3s ease-in-out infinite;
+      width: 220px;
+      animation: float 3s ease-in-out infinite, wiggle 6s ease-in-out infinite;
     }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
     @keyframes wiggle {
       0% { transform: rotate(0deg); }
-      35% { transform: rotate(2.8deg); }
-      70% { transform: rotate(-2.8deg); }
+      35% { transform: rotate(2deg); }
+      70% { transform: rotate(-2deg); }
       100% { transform: rotate(0deg); }
     }
 
@@ -79,7 +85,7 @@
     }
 
     .analysis-card span {
-      font-size: 15px;
+      font-size: 14px;
       color: #6b547a;
       line-height: 1.4;
     }
@@ -90,11 +96,14 @@
       background: #ffffff;
       text-align: center;
     }
+
     .lecture-grid {
       display: flex;
       justify-content: center;
       gap: 24px;
+      flex-wrap: wrap;
     }
+
     .lecture-card {
       background: #f6f0fa;
       padding: 26px 22px;
@@ -124,7 +133,7 @@
 
 <!-- HERO -->
 <section style="padding:140px 20px; text-align:center; background:#f6f0fa;">
-  <img src="cat-logo-new.png" class="cat-wiggle" style="width:220px;">
+  <img src="cat-logo-new.png" class="cat" alt="LabBook cat">
   <h1 style="font-size:64px; color:#4c2f66;">Ignatenko LabBook</h1>
   <p style="font-size:26px; color:#6b547a;">
     Персональная шпаргалка врача КДЛ: анализы, интерпретации, алгоритмы
@@ -139,42 +148,47 @@
 
     <a class="analysis-card" href="#">
       <strong>Гематология</strong>
-      <span>ОАК, ретикулоциты, СОЭ</span>
+      <span>ОАК, формула, ретикулоциты, СОЭ</span>
     </a>
 
     <a class="analysis-card" href="#">
       <strong>Общеклинические исследования</strong>
-      <span>ОАМ, кал, мокрота</span>
+      <span>ОАМ, кал, мокрота, спермограмма</span>
     </a>
 
     <a class="analysis-card" href="#">
       <strong>Биохимия</strong>
-      <span>АЛТ, АСТ, билирубин</span>
+      <span>АЛТ, АСТ, билирубин, креатинин, СРБ</span>
     </a>
 
     <a class="analysis-card" href="#">
       <strong>Гемостаз</strong>
-      <span>ПТИ, МНО, АЧТВ, варфарин</span>
+      <span>ПТИ, МНО, АЧТВ, фибриноген, варфарин</span>
+    </a>
+
+    <a class="analysis-card" href="#">
+      <strong>Микробиология</strong>
+      <span>Посевы, антибиотикограмма, ПЦР</span>
     </a>
 
     <a class="analysis-card" href="#">
       <strong>Иммунология</strong>
-      <span>IgG, IgM</span>
+      <span>IgG, IgM, IgA, аутоантитела</span>
     </a>
 
     <a class="analysis-card" href="#">
       <strong>Инфекции</strong>
-      <span>ВИЧ, гепатиты, TORCH</span>
+      <span>ВИЧ, гепатиты, TORCH, сифилис</span>
     </a>
 
     <a class="analysis-card" href="#">
       <strong>Гормоны</strong>
-      <span>ТТГ, Т4, Т3</span>
+      <span>ТТГ, Т4, Т3, пролактин, кортизол</span>
     </a>
 
     <a class="analysis-card" href="#">
       <strong>Онкомаркеры</strong>
-      <span>СА-125, СА-19-9, ПСА</span>
+      <span>СА-125, СА-19-9, ПСА, АФП</span>
     </a>
 
   </div>
@@ -186,11 +200,11 @@
   <div class="lecture-grid">
     <a class="lecture-card" href="#">
       <h3>Гипотиреоз: алгоритм КДЛ</h3>
-      <p>Краткий обзор диагностики</p>
+      <p>Пошаговая лабораторная диагностика</p>
     </a>
     <a class="lecture-card" href="#">
       <h3>Интерпретация ферритина</h3>
-      <p>Практическая шпаргалка</p>
+      <p>Дефицит, воспаление, перегрузка</p>
     </a>
   </div>
 </section>
@@ -199,8 +213,8 @@
 <section class="about">
   <h2>О проекте</h2>
   <p>
-    Ignatenko LabBook — это личная профессиональная база знаний врача КДЛ,
-    где собраны анализы, интерпретации, алгоритмы диагностики и обучающие материалы.
+    Ignatenko LabBook — личная профессиональная база знаний врача КДЛ:
+    анализы, интерпретации, преаналитика и клинические алгоритмы.
   </p>
 </section>
 
